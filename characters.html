@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QuixoteQuest — Characters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--brown);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--parchment);
+      box-shadow: 0 8px 20px rgba(107, 68, 35, 0.4);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0);
+      z-index: 100;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .back-to-top:hover {
+      background: var(--brown-dark);
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 12px 28px rgba(107, 68, 35, 0.5);
+    }
+    .back-to-top:active { transform: scale(0.95); }
+    @media (max-width: 768px) {
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="top"></div>
+  <div class="page-frame" aria-hidden="true"></div>
+  <div class="page-shell">
+    <button class="back-to-top" id="backToTopBtn" title="Back to top">↑</button>
+    <header class="nav-shell">
+      <div class="nav-inner">
+        <a class="brand" href="index.html">QuixoteQuest</a>
+        <nav class="nav-menu" id="navMenu">
+          <a href="index.html">Home</a>
+          <a href="plot.html">Plot</a>
+          <a href="analysis.html">Analysis</a>
+          <a href="themes.html">Themes</a>
+          <a href="characters.html" class="active">Characters</a>
+          <a href="author.html">Author</a>
+          <a href="quiz.html">Quiz</a>
+        </nav>
+        <div class="nav-cta">
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <section class="section" id="characters">
+      <div class="container">
+        <div class="character-hero card-soft">
+          <div class="character-hero__copy">
+            <p class="eyebrow">Cast</p>
+            <h1 class="character-hero__title">Allies, foils, and tricksters</h1>
+            <p class="character-hero__lead">Flip through the people orbiting Don Quixote—each one reflecting, challenging, or amplifying his impossible quest.</p>
+            <div class="hero-chips">
+              <span class="theme-chip">Loyalty vs. Delusion</span>
+              <span class="theme-chip">Satire in motion</span>
+              <span class="theme-chip">Reality checks</span>
+            </div>
+          </div>
+          <div class="character-hero__stats">
+            <div class="stat mini">
+              <span class="stat-value">20</span>
+              <span class="stat-label">Profiles</span>
+            </div>
+            <div class="stat mini">
+              <span class="stat-value">2</span>
+              <span class="stat-label">Narrators</span>
+            </div>
+            <div class="stat mini">
+              <span class="stat-value">∞</span>
+              <span class="stat-label">Perspectives</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container characters-board">
+        <div class="board-top">
+          <div>
+            <h2 class="section-title">Meet the companions</h2>
+            <p class="section-lead">Tap any card to open the quick bio modal. Hover for a subtle parallax glow.</p>
+          </div>
+          <div class="legend-row">
+            <span class="legend-dot"></span>
+            <span class="legend-label">Hover glow = story prominence</span>
+          </div>
+        </div>
+
+        <div class="char-grid" id="charactersGrid"></div>
+      </div>
+
+      <div id="charModal" class="modal hidden">
+        <div class="modal-box">
+          <button class="modal-close" id="charModalClose" aria-label="Close character details">✕</button>
+          <img id="charModalImg" class="char-modal-img" alt="Character portrait">
+          <h3 id="charTitle"></h3>
+          <p id="charNote"></p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <h4 class="brand">QuixoteQuest</h4>
+          <p class="muted">Classroom version • Built for educational use.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/main.js"></script>
+  <script>
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

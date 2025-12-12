@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QuixoteQuest — Plot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--brown);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--parchment);
+      box-shadow: 0 8px 20px rgba(107, 68, 35, 0.4);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0);
+      z-index: 100;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .back-to-top:hover {
+      background: var(--brown-dark);
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 12px 28px rgba(107, 68, 35, 0.5);
+    }
+    .back-to-top:active { transform: scale(0.95); }
+    @media (max-width: 768px) {
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="top"></div>
+  <div class="page-frame" aria-hidden="true"></div>
+  <div class="page-shell">
+    <button class="back-to-top" id="backToTopBtn" title="Back to top">↑</button>
+    <header class="nav-shell">
+      <div class="nav-inner">
+        <a class="brand" href="index.html">QuixoteQuest</a>
+        <nav class="nav-menu" id="navMenu">
+          <a href="index.html">Home</a>
+          <a href="plot.html" class="active">Plot</a>
+          <a href="analysis.html">Analysis</a>
+          <a href="themes.html">Themes</a>
+          <a href="characters.html">Characters</a>
+          <a href="author.html">Author</a>
+          <a href="quiz.html">Quiz</a>
+        </nav>
+        <div class="nav-cta">
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+   
+
+    <section class="section" id="plot">
+      <div class="container">
+        <div class="plot-hero card-soft">
+          <div class="pill-label">Plot Compass</div>
+          <h1 class="plot-hero__title">Don Quixote&apos;s Wandering Quest</h1>
+          <p class="plot-hero__lead">Two journeys, one feverish imagination, and a world forever changed by a would-be knight-errant who refuses to see the world as it is.</p>
+          <div class="plot-hero__meta">
+            <span class="meta-chip">1605 &amp; 1615</span>
+            <span class="meta-chip">La Mancha → Spain</span>
+            <span class="meta-chip">Satire • Adventure • Meta-fiction</span>
+          </div>
+        </div>
+
+        <div class="plot-deck">
+          <aside class="plot-card plot-aside card-soft">
+            <h3>Journey beats</h3>
+            <ol class="plot-steps">
+              <li><strong>Awakening:</strong> Alonso Quixano crowns himself a knight and rides Rocinante in search of valor.</li>
+              <li><strong>First defeats:</strong> Windmills, inn scuffles, and bruised pride forge his partnership with Sancho.</li>
+              <li><strong>Wayward mercy:</strong> Ill-timed rescues, stolen basins, and a potion that harms more than heals.</li>
+              <li><strong>Interludes:</strong> Travelers’ romances and tragedies weave into the quest, often ending at an inn.</li>
+              <li><strong>Part II spectacle:</strong> Fame precedes him; nobles prank him; Dulcinea’s &ldquo;enchantment&rdquo; becomes obsession.</li>
+              <li><strong>Last ride:</strong> A staged defeat forces him home to renounce chivalry and let the dream fade.</li>
+            </ol>
+            <div class="plot-stats">
+              <div class="stat">
+                <span class="stat-value">2</span>
+                <span class="stat-label">Major expeditions</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value">3,300</span>
+                <span class="stat-label">Lashes Sancho owes</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value">4</span>
+                <span class="stat-label">Lovers reunited</span>
+              </div>
+            </div>
+          </aside>
+
+          <div class="plot-card plot-body card-soft">
+            <div class="plot-figure">
+              <img src="images/real.jpg" alt="Illustration of Don Quixote riding" class="plot-img">
+              <p class="fig-caption">The knight-errant rides out with Rocinante and his imagined lady, Dulcinea, in mind.</p>
+            </div>
+
+            <div class="plot-text">
+              <p>
+                Don Quixote is a middle-aged gentleman from the region of La Mancha in central Spain. Obsessed with the chivalrous
+                ideals touted in books he has read, he decides to take up his lance and sword to defend the helpless and destroy
+                the wicked. After a first failed adventure, he sets out on a second one with a somewhat befuddled laborer named
+                Sancho Panza, whom he has persuaded to accompany him as his faithful squire. In return for Sancho’s services,
+                Don Quixote promises to make Sancho the wealthy governor of an isle. On his horse, Rocinante, a barn nag well past his prime,
+                Don Quixote rides the roads of Spain in search of glory and grand adventure. He gives up food, shelter, and comfort,
+                all in the name of a peasant woman, Dulcinea del Toboso, whom he envisions as a princess.
+              </p>
+
+              <p>
+                On his second expedition, Don Quixote becomes more of a bandit than a savior, stealing from and hurting baffled and
+                justifiably angry citizens while acting out against what he perceives as threats to his knighthood or to the world.
+                Don Quixote abandons a boy, leaving him in the hands of an evil farmer simply because the farmer swears an oath that he
+                will not harm the boy. He steals a barber’s basin that he believes to be the mythic Mambrino’s helmet, and he becomes
+                convinced of the healing powers of the Balsam of Fierbras, an elixir that makes him so ill that, by comparison, he later
+                feels healed. Sancho stands by Don Quixote, often bearing the brunt of the punishments that arise from Don Quixote’s behavior.
+              </p>
+
+              <p>
+                The story of Don Quixote’s deeds includes the stories of those he meets on his journey. Don Quixote witnesses the funeral
+                of a student who dies as a result of his love for a disdainful lady turned shepherdess. He frees a wicked and devious galley
+                slave, Gines de Pasamonte, and unwittingly reunites two bereaved couples, Cardenio and Lucinda, and Ferdinand and Dorothea.
+                Torn apart by Ferdinand’s treachery, the four lovers finally come together at an inn where Don Quixote sleeps, dreaming that he is battling a giant.
+                Along the way, the simple Sancho plays the straight man to Don Quixote, trying his best to correct his master’s outlandish fantasies. Two of Don Quixote’s friends, the priest and the barber, come to drag him home. Believing that he is under the force of an enchantment, he accompanies them, thus ending his second expedition and the First Part of the novel.
+              </p>
+
+              <div class="plot-figure">
+                <img src="images/duke.jpg" alt="Illustration of the Duke and Duchess" class="plot-img">
+                <p class="fig-caption">In Part II, fame precedes the knight, and nobles turn his delusion into entertainment.</p>
+              </div>
+
+              <p>
+                The Second Part of the novel begins with a passionate invective against a phony sequel of Don Quixote that was published in the interim between Cervantes’s two parts. Everywhere Don Quixote goes, his reputation—gleaned by others from both the real and the false versions of the story—precedes him.
+                As the two embark on their journey, Sancho lies to Don Quixote, telling him that an evil enchanter has transformed Dulcinea into a peasant girl. Undoing this enchantment, in which even Sancho comes to believe, becomes Don Quixote’s chief goal.
+                Don Quixote meets a Duke and Duchess who conspire to play tricks on him. They make a servant dress up as Merlin, for example, and tell Don Quixote that Dulcinea’s enchantment—which they know to be a hoax—can be undone only if Sancho whips himself 3,300 times on his naked backside. Under the watch of the Duke and Duchess, Don Quixote and Sancho undertake several adventures. They set out on a flying wooden horse, hoping to slay a giant who has turned a princess and her lover into metal figurines and bearded the princess’s female servants.
+              </p>
+
+              <p>
+                During his stay with the Duke, Sancho becomes governor of a fictitious isle. He rules for ten days until he is wounded in an onslaught the Duke and Duchess sponsor for their entertainment. Sancho reasons that it is better to be a happy laborer than a miserable governor.
+                A young maid at the Duchess’s home falls in love with Don Quixote, but he remains a staunch worshipper of Dulcinea. Their never-consummated affair amuses the court to no end. Finally, Don Quixote sets out again on his journey, but his demise comes quickly. Shortly after his arrival in Barcelona, the Knight of the White Moon—actually an old friend in disguise—vanquishes him.
+              </p>
+
+              <p>
+                Cervantes relates the story of Don Quixote as a history, which he claims he has translated from a manuscript written by a Moor named Cide Hamete Benengeli. Cervantes becomes a party to his own fiction, even allowing Sancho and Don Quixote to modify their own histories and comment negatively upon the false history published in their names.
+                In the end, the beaten and battered Don Quixote forswears all the chivalric truths he followed so fervently and dies from a fever. With his death, knights-errant become extinct. Benengeli returns at the end of the novel to tell us that illustrating the demise of chivalry was his main purpose in writing the history of Don Quixote.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <h4 class="brand">QuixoteQuest</h4>
+          <p class="muted">Classroom version • Built for educational use.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/main.js"></script>
+  <script>
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

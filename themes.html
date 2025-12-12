@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QuixoteQuest — Themes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--brown);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--parchment);
+      box-shadow: 0 8px 20px rgba(107, 68, 35, 0.4);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0);
+      z-index: 100;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .back-to-top:hover {
+      background: var(--brown-dark);
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 12px 28px rgba(107, 68, 35, 0.5);
+    }
+    .back-to-top:active { transform: scale(0.95); }
+    @media (max-width: 768px) {
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="top"></div>
+  <div class="page-frame" aria-hidden="true"></div>
+  <div class="page-shell">
+    <button class="back-to-top" id="backToTopBtn" title="Back to top">↑</button>
+    <header class="nav-shell">
+      <div class="nav-inner">
+        <a class="brand" href="index.html">QuixoteQuest</a>
+        <nav class="nav-menu" id="navMenu">
+          <a href="index.html">Home</a>
+          <a href="plot.html">Plot</a>
+          <a href="analysis.html">Analysis</a>
+          <a href="themes.html" class="active">Themes</a>
+          <a href="characters.html">Characters</a>
+          <a href="author.html">Author</a>
+          <a href="quiz.html">Quiz</a>
+        </nav>
+        <div class="nav-cta">
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="themes">
+      <div class="container">
+        <div class="card-soft" style="display:grid;gap:0.6rem;">
+          <span class="pill-label">Theme map</span>
+          <h1 class="section-title">Threads that hold Don Quixote together</h1>
+          <p class="section-lead">Reality keeps colliding with invention, authors keep arguing over who owns the story, and loyalty keeps trying to steady a wobbling dream.</p>
+          <div class="theme-pills">
+            <span class="theme-chip">Reality vs. illusion</span>
+            <span class="theme-chip">Authorship</span>
+            <span class="theme-chip">Power & class</span>
+            <span class="theme-chip">Friendship</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container feature-grid" style="margin-top:1.2rem;">
+        <article class="card-soft">
+          <div class="icon-dot">🎭</div>
+          <h3>Reality vs. illusion</h3>
+          <p>Windmills, barber basins, and wooden horses test the line between what is seen and what is believed. Cervantes asks how far faith can bend before it snaps.</p>
+        </article>
+        <article class="card-soft">
+          <div class="icon-dot">✍️</div>
+          <h3>Authorship & voice</h3>
+          <p>Manuscripts within manuscripts, fake sequels, and a chatty translator make the novel an argument about who controls the telling of any story.</p>
+        </article>
+        <article class="card-soft">
+          <div class="icon-dot">⚖️</div>
+          <h3>Power, justice, class</h3>
+          <p>Knighthood is obsolete, nobles are bored, peasants carry the load. The book mocks hierarchies while showing how often justice misses the poor.</p>
+        </article>
+        <article class="card-soft">
+          <div class="icon-dot">🤝</div>
+          <h3>Companionship vs. isolation</h3>
+          <p>Sancho’s loyalty and Dulcinea’s imagined presence keep Quixote going. Companionship tempers delusion, but it cannot fully cure it.</p>
+        </article>
+      </div>
+
+      <div class="container analysis-grid" style="margin-top:1.4rem;">
+        <div class="analysis-main">
+          <article class="insight-card">
+            <h3>Motifs and symbols</h3>
+            <ul class="beat-list">
+              <li>Windmills: modern machinery read as monsters; emblem of misperception.</li>
+              <li>Books and manuscripts: power to shape identity; fuel for both satire and empathy.</li>
+              <li>Helmets and basins: objects whose meaning is negotiated by whoever names them.</li>
+              <li>Roads and inns: liminal spaces where strangers trade stories and test truths.</li>
+            </ul>
+          </article>
+
+          <article class="insight-card">
+            <h3>Narrative games</h3>
+            <p>Part II treats Part I as real history, while mocking an actual pirated sequel. Characters read about themselves and change course because of it—a feedback loop that turns readers into witnesses inside the fiction.</p>
+          </article>
+
+          <article class="insight-card image-card">
+            <div class="image-card__media" aria-hidden="true">
+              <img src="images/windmill.jpg" alt="Windmills at sunset" loading="lazy">
+            </div>
+            <div class="image-card__body">
+              <h3>Ethics of seeing</h3>
+              <p>Quixote’s gaze can wound (freeing galley slaves who rob travelers) or inspire (Sancho’s brief, fair governance). The book argues that vision without listening becomes violence.</p>
+            </div>
+          </article>
+        </div>
+
+        <aside class="analysis-aside">
+          <div class="insight-card mini-card">
+            <h4>Character pairings</h4>
+            <ul class="beat-list">
+              <li>Quixote / Sancho: idealism balanced by pragmatism.</li>
+              <li>Dulcinea / Aldonza: imagined nobility vs. lived reality.</li>
+              <li>Duke & Duchess / Roque Guinart: cruelty for sport vs. justice under duress.</li>
+              <li>Benengeli / Cervantes: historian vs. translator; authorship split in two.</li>
+            </ul>
+          </div>
+
+          <div class="insight-card mini-card">
+            <h4>Why it still lands</h4>
+            <ul class="beat-list">
+              <li>Invents metafiction before the term existed.</li>
+              <li>Blends slapstick with moral inquiry.</li>
+              <li>Shows how stories can heal, harm, or hijack reality.</li>
+              <li>Models empathy for dreamers without excusing their damage.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <h4 class="brand">QuixoteQuest</h4>
+          <p class="muted">Classroom version • Built for educational use.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/main.js"></script>
+  <script>
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

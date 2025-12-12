@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QuixoteQuest — Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Landing Page Specific Styles */
+    .stats-section {
+      background: linear-gradient(135deg, rgba(32, 38, 54, 0.6), rgba(21, 26, 35, 0.8));
+      padding: 3rem 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--brown), var(--brown-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    .stat-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--brown-light);
+      box-shadow: 0 16px 40px rgba(107, 68, 35, 0.25);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--sepia);
+      font-family: "Playfair Display", serif;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: var(--ink);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .stat-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Featured Section Styles */
+    .featured-section {
+      padding: 3rem 0;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .featured-card {
+      background: linear-gradient(135deg, rgba(32, 38, 54, 0.9), rgba(21, 26, 35, 0.95));
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .featured-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 166, 78, 0.15), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .featured-card:hover::before {
+      opacity: 1;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-12px);
+      border-color: var(--accent-color, #d4a64e);
+      box-shadow: 0 20px 50px rgba(107, 68, 35, 0.3);
+    }
+
+    .featured-icon {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .featured-card:hover .featured-icon {
+      transform: scale(1.15) rotate(-5deg);
+    }
+
+    .featured-title {
+      font-size: 1.35rem;
+      color: var(--ink);
+      margin: 0;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+
+    .featured-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      flex-grow: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .featured-link {
+      color: var(--sepia);
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+      width: fit-content;
+    }
+
+    .featured-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--brown);
+      transition: width 0.3s ease;
+    }
+
+    .featured-card:hover .featured-link::after {
+      width: 100%;
+    }
+
+    /* Why Section */
+    .why-section {
+      background: linear-gradient(135deg, rgba(32, 38, 54, 0.8), rgba(21, 26, 35, 0.9));
+      padding: 3rem 0;
+    }
+
+    .why-content {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .why-text {
+      padding: 1rem;
+    }
+
+    .why-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 1.5rem;
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .why-list li {
+      padding-left: 2rem;
+      position: relative;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .why-list li::before {
+      content: '✨';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.2rem;
+    }
+
+    .why-visual {
+      background: linear-gradient(135deg, rgba(212, 166, 78, 0.12), rgba(117, 76, 36, 0.08));
+      border: 2px solid rgba(212, 166, 78, 0.3);
+      padding: 2.5rem;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 320px;
+    }
+
+    .why-quote {
+      text-align: center;
+    }
+
+    .quote-large {
+      font-size: 1.35rem;
+      color: var(--ink);
+      font-style: italic;
+      line-height: 1.8;
+      margin: 0 0 1rem;
+      font-family: "Playfair Display", serif;
+    }
+
+    .quote-attr {
+      color: var(--sepia);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 2rem 0 3rem;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(212, 166, 78, 0.15), rgba(117, 76, 36, 0.1));
+      border: 2px solid var(--brown-light);
+      text-align: center;
+      padding: 3rem;
+      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(107, 68, 35, 0.25);
+    }
+
+    .cta-title {
+      font-size: 2.2rem;
+      color: var(--sepia);
+      margin-bottom: 0.8rem;
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+    }
+
+    .cta-text {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .why-content {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-box {
+        padding: 2rem;
+      }
+
+      .cta-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .stat-card {
+        padding: 1.5rem 1rem;
+      }
+
+      .stat-number {
+        font-size: 2.2rem;
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .quote-large {
+        font-size: 1.15rem;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--brown);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--parchment);
+      box-shadow: 0 8px 20px rgba(107, 68, 35, 0.4);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0);
+      z-index: 100;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1.15);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .back-to-top:hover {
+      background: var(--brown-dark);
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 12px 28px rgba(107, 68, 35, 0.5);
+    }
+
+    .back-to-top:active {
+      transform: scale(0.95);
+    }
+
+    @media (max-width: 768px) {
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="top"></div>
+  <div class="page-frame" aria-hidden="true"></div>
+  <div class="page-shell">
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="backToTopBtn" title="Back to top">↑</button>
+    <!-- NAVIGATION -->
+    <header class="nav-shell">
+      <div class="nav-inner">
+        <a class="brand" href="index.html">QuixoteQuest</a>
+        <nav class="nav-menu" id="navMenu">
+          <a href="index.html" class="active">Home</a>
+          <a href="plot.html">Plot</a>
+          <a href="analysis.html">Analysis</a>
+          <a href="themes.html">Themes</a>
+          <a href="characters.html">Characters</a>
+          <a href="author.html">Author</a>
+          <a href="quiz.html">Quiz</a>
+        </nav>
+        <div class="nav-cta">
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Welcome to QuixoteQuest</p>
+          <h1 class="hero-title">Conquer the masterpiece of the Golden Age</h1>
+          <p class="lead">Explore Don Quixote's windmills and dreams through interactive guides, deep analysis, and character profiles. Master literature's most influential novel in one seamless journey.</p>
+          <div class="cta-row">
+            <a class="btn" href="plot.html">Read the Plot</a>
+            <a class="btn ghost" href="quiz.html">Test Your Knowledge</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-blob"></div>
+          <img src="images/bg.jpg" alt="Illustration inspired by Don Quixote" class="hero-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK STATS -->
+    <section class="section stats-section">
+      <div class="container stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Volumes</div>
+          <p class="stat-desc">1605 & 1615 — A decade of revisions and meta-narrative genius</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">900+</div>
+          <div class="stat-label">Pages</div>
+          <p class="stat-desc">Over 900 pages of adventure, satire, and unforgettable characters</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Characters</div>
+          <p class="stat-desc">From dreamers to tricksters—each with their own story arc</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Impact</div>
+          <p class="stat-desc">Invented the modern novel and inspired centuries of writers</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED SECTIONS -->
+    <section class="section featured-section">
+      <div class="container section-heading">
+        <p class="eyebrow">Your Learning Path</p>
+        <h2 class="section-title">Choose where to start your quest</h2>
+        <p class="section-lead">Jump into the story, explore themes, meet characters, or challenge yourself with our interactive quiz.</p>
+      </div>
+      <div class="container featured-grid">
+        <article class="featured-card" style="--accent-color: #d4a64e;">
+          <div class="featured-icon">📜</div>
+          <h3 class="featured-title">Plot Summary</h3>
+          <p class="featured-desc">Follow Don Quixote's journey from his library to the roads of La Mancha. Understand the structure, key moments, and narrative twists.</p>
+          <a href="plot.html" class="featured-link">Explore Plot →</a>
+        </article>
+
+        <article class="featured-card" style="--accent-color: #b5852c;">
+          <div class="featured-icon">🔍</div>
+          <h3 class="featured-title">Critical Analysis</h3>
+          <p class="featured-desc">Dive deep into themes of reality vs. illusion, metafiction, power, and justice. See how Cervantes breaks literary rules.</p>
+          <a href="analysis.html" class="featured-link">Read Analysis →</a>
+        </article>
+
+        <article class="featured-card" style="--accent-color: #754c24;">
+          <div class="featured-icon">✨</div>
+          <h3 class="featured-title">Key Themes</h3>
+          <p class="featured-desc">Unpack the novel's central ideas: authorship, perception, loyalty, and the clash between idealism and reality.</p>
+          <a href="themes.html" class="featured-link">Discover Themes →</a>
+        </article>
+
+        <article class="featured-card" style="--accent-color: #8b6f47;">
+          <div class="featured-icon">👥</div>
+          <h3 class="featured-title">Character Profiles</h3>
+          <p class="featured-desc">Meet the cast: Don Quixote, Sancho Panza, Dulcinea, and 20+ others. Interactive cards reveal their roles and arcs.</p>
+          <a href="characters.html" class="featured-link">Meet Characters →</a>
+        </article>
+
+        <article class="featured-card" style="--accent-color: #d4a64e;">
+          <div class="featured-icon">✍️</div>
+          <h3 class="featured-title">About the Author</h3>
+          <p class="featured-desc">Discover Miguel de Cervantes—soldier, captive, and revolutionary writer. Understand the life behind the masterpiece.</p>
+          <a href="author.html" class="featured-link">Learn Bio →</a>
+        </article>
+
+        <article class="featured-card" style="--accent-color: #b5852c;">
+          <div class="featured-icon">🎯</div>
+          <h3 class="featured-title">Interactive Quiz</h3>
+          <p class="featured-desc">Test your knowledge with 15 questions: multiple choice, true/false, and character guessing. See how well you know the novel!</p>
+          <a href="quiz.html" class="featured-link">Take Quiz →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- WHY QUIXOTE MATTERS -->
+    <section class="section why-section">
+      <div class="container">
+        <div class="why-content">
+          <div class="why-text">
+            <span class="pill-label">Why This Novel Matters</span>
+            <h2 class="section-title">The book that invented the modern novel</h2>
+            <p style="color: var(--muted); font-size: 1.1rem; line-height: 1.8; margin: 1.2rem 0;">
+              When Cervantes published <em>Don Quixote</em>, the novel didn't exist yet. What he created wasn't just a comedy about a deluded knight—it was a revolution in storytelling.
+            </p>
+            <ul class="why-list">
+              <li><strong>First metafiction:</strong> The novel reads itself, characters argue about their own story, and fake sequels blur reality and fiction.</li>
+              <li><strong>Complex characterization:</strong> Quixote isn't just funny; he's tragic, wise, and deeply human. Sancho grows from servant to sage.</li>
+              <li><strong>Literary satire:</strong> Cervantes mocks the chivalric novels of his time while creating something infinitely greater.</li>
+              <li><strong>Timeless themes:</strong> Idealism vs. reality, the power of stories, and the cost of holding onto dreams feel urgent today.</li>
+            </ul>
+          </div>
+          <div class="why-visual card-soft">
+            <div class="why-quote">
+              <p class="quote-large">
+                "The novel keeps asking: who owns a story—the one who lives it, the one who writes it, or the one who reads?"
+              </p>
+              <span class="quote-attr">A central question of Don Quixote</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section cta-section">
+      <div class="container cta-box card-soft">
+        <h2 class="cta-title">Ready to begin your quest?</h2>
+        <p class="cta-text">Whether you're discovering Don Quixote for the first time or diving deeper into a favorite book, QuixoteQuest is your guide.</p>
+        <div class="cta-buttons">
+          <a href="plot.html" class="btn">Start Reading</a>
+          <a href="quiz.html" class="btn ghost">Test Knowledge</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU'LL EXPLORE -->
+    <section class="section">
+      <div class="container section-heading">
+        <p class="eyebrow">What you'll explore</p>
+        <h2 class="section-title">Everything you need to master Don Quixote</h2>
+        <p class="section-lead">From the plot's opening mad moment to Quixote's final renunciation, we've mapped every essential element.</p>
+      </div>
+      <div class="container feature-grid">
+        <article class="card-soft">
+          <div class="icon-dot">📚</div>
+          <h3>Complete Plot Arc</h3>
+          <p>Part I and Part II in full—no skimming required. Every major episode, from the windmills to the Barcelona duel, explained with context.</p>
+        </article>
+        <article class="card-soft">
+          <div class="icon-dot">⚖️</div>
+          <h3>Big Ideas</h3>
+          <p>Reality, illusion, authorship, power, class, friendship. How Cervantes explores these themes and why they still matter.</p>
+        </article>
+        <article class="card-soft">
+          <div class="icon-dot">🎭</div>
+          <h3>Rich Characters</h3>
+          <p>20+ character profiles, interactive modals, and character arcs. Understand who Sancho really is and why Dulcinea haunts the novel.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <h4 class="brand">QuixoteQuest</h4>
+          <p class="muted">Classroom version • Built for educational use.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/main.js"></script>
+  <script>
+    // Back to Top Button with Pop Animation
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>

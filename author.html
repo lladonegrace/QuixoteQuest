@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QuixoteQuest — Author</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--brown);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--parchment);
+      box-shadow: 0 8px 20px rgba(107, 68, 35, 0.4);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0);
+      z-index: 100;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .back-to-top:hover {
+      background: var(--brown-dark);
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 12px 28px rgba(107, 68, 35, 0.5);
+    }
+    .back-to-top:active { transform: scale(0.95); }
+    @media (max-width: 768px) {
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="top"></div>
+  <div class="page-frame" aria-hidden="true"></div>
+  <div class="page-shell">
+    <button class="back-to-top" id="backToTopBtn" title="Back to top">↑</button>
+    <header class="nav-shell">
+      <div class="nav-inner">
+        <a class="brand" href="index.html">QuixoteQuest</a>
+        <nav class="nav-menu" id="navMenu">
+          <a href="index.html">Home</a>
+          <a href="plot.html">Plot</a>
+          <a href="analysis.html">Analysis</a>
+          <a href="themes.html">Themes</a>
+          <a href="characters.html">Characters</a>
+          <a href="author.html" class="active">Author</a>
+          <a href="quiz.html">Quiz</a>
+        </nav>
+        <div class="nav-cta">
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="author">
+      <div class="container author-hero card-soft">
+        <div class="author-hero__copy">
+          <span class="author-badge">Author dossier</span>
+          <h1 class="author-title">Miguel de Cervantes Saavedra</h1>
+          <p class="author-lead">Soldier, captive, tax officer, and relentless experimenter whose satire of chivalry turned into the blueprint for the modern novel.</p>
+          <div class="author-chips">
+            <span class="theme-chip">1547–1616</span>
+            <span class="theme-chip">Golden Age Spain</span>
+            <span class="theme-chip">Satire • Meta-narrative</span>
+            <span class="theme-chip">Proto-modernism</span>
+          </div>
+        </div>
+        <div class="author-hero__figure">
+          <div class="author-portrait-frame">
+            <img src="images/cervantes.jpg" alt="Portrait of Miguel de Cervantes" class="author-portrait-main">
+            <span class="author-portrait-glow" aria-hidden="true"></span>
+          </div>
+          <div class="author-hero__stats">
+            <div class="stat mini">
+              <span class="stat-value">Lepanto</span>
+              <span class="stat-label">Lost use of left hand</span>
+            </div>
+            <div class="stat mini">
+              <span class="stat-value">5 yrs</span>
+              <span class="stat-label">Captive in Algiers</span>
+            </div>
+            <div class="stat mini">
+              <span class="stat-value">2 parts</span>
+              <span class="stat-label">Don Quixote (1605, 1615)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container author-grid">
+        <div class="author-main">
+          <article class="author-panel bio-card card-soft">
+            <h3>Life in brief</h3>
+            <p><strong>Born</strong> September 29, 1547, in Alcalá de Henares to a surgeon father whose unsettled work kept the family moving. He likely studied under Jesuits, then with humanist Juan Lopez de Hoyos in Madrid.</p>
+            <p><strong>Soldier</strong> in the Spanish navy (1570); fought at the Battle of Lepanto (1571) where wounds crippled his left hand. <strong>Captured</strong> by Ottoman corsairs (1575) and held in Algiers for five years, plotting several failed escapes before ransom freed him in 1580.</p>
+            <p><strong>Writer-for-hire</strong> and tax officer afterward, often in debt. Published <em>La Galatea</em> (1585) with modest notice; turned to theater and short fiction. <em>Don Quixote</em> Part I (1605) made him famous; Part II (1615) answered a fake sequel and sharpened the meta-jokes.</p>
+            <p><strong>Late output</strong> included <em>Novelas ejemplares</em> (1613), the satirical poem <em>Viaje del Parnaso</em> (1614), and the romance <em>Persiles y Sigismunda</em> (1617, posthumous). Cervantes died in Madrid on April 22, 1616; his burial is recorded at the Convent of the Barefoot Trinitarians.</p>
+          </article>
+
+          <article class="author-panel card-soft fact-card">
+            <h3>Works and forms</h3>
+            <div class="fact-grid">
+              <div class="fact">
+                <div class="fact-label">Major works</div>
+                <div class="fact-value">Don Quixote I & II, Novelas ejemplares, La Galatea, Persiles y Sigismunda</div>
+              </div>
+              <div class="fact">
+                <div class="fact-label">Genres</div>
+                <div class="fact-value">Satire, picaresque, pastoral, novella, drama</div>
+              </div>
+              <div class="fact">
+                <div class="fact-label">Innovations</div>
+                <div class="fact-value">Narrators within narrators, unreliable translation, self-aware sequel warfare</div>
+              </div>
+              <div class="fact">
+                <div class="fact-label">Themes</div>
+                <div class="fact-value">Reality vs. illusion, authorship, honor, changing Spain</div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <aside class="author-side">
+          <article class="author-panel card-soft timeline-card">
+            <h3>Key dates</h3>
+            <ul class="timeline">
+              <li><span class="time">1547</span><span class="time-note">Born in Alcalá de Henares.</span></li>
+              <li><span class="time">1571</span><span class="time-note">Fights at Lepanto; wounded.</span></li>
+              <li><span class="time">1575-80</span><span class="time-note">Captured by corsairs; held in Algiers.</span></li>
+              <li><span class="time">1585</span><span class="time-note">Publishes <em>La Galatea</em>.</span></li>
+              <li><span class="time">1605</span><span class="time-note"><em>Don Quixote</em>, Part I.</span></li>
+              <li><span class="time">1613</span><span class="time-note"><em>Novelas ejemplares</em>.</span></li>
+              <li><span class="time">1615</span><span class="time-note">Part II of <em>Don Quixote</em>; <em>Viaje del Parnaso</em>.</span></li>
+              <li><span class="time">1616</span><span class="time-note">Dies in Madrid; <em>Persiles</em> published posthumously.</span></li>
+            </ul>
+          </article>
+
+          <article class="author-panel card-soft legacy-card">
+            <h3>Influence and legacy</h3>
+            <ul class="beat-list">
+              <li>Helped define the modern novel: layered narrators, self-editing text, and playful doubt about truth.</li>
+              <li>Inspired authors from Fielding and Sterne to Flaubert, Dostoevsky, Borges, and Garcia Marquez.</li>
+              <li>Model for metafiction: the fake sequel inside Part II anticipates copyright, canon, and fanfiction debates.</li>
+              <li>Bridges eras: Renaissance humanism meets Baroque disillusion and early modern skepticism.</li>
+            </ul>
+          </article>
+
+          <article class="author-panel card-soft craft-card">
+            <h3>Style notes</h3>
+            <div class="pill-stack">
+              <span class="theme-chip">Irony that forgives</span>
+              <span class="theme-chip">Dialogic voices</span>
+              <span class="theme-chip">Genre pastiche</span>
+              <span class="theme-chip">Everyday detail</span>
+              <span class="theme-chip">Moral ambiguity</span>
+            </div>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <h4 class="brand">QuixoteQuest</h4>
+          <p class="muted">Classroom version • Built for educational use.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/main.js"></script>
+  <script>
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

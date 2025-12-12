@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QuixoteQuest — Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--brown);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--parchment);
+      box-shadow: 0 8px 20px rgba(107, 68, 35, 0.4);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0);
+      z-index: 100;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .back-to-top:hover {
+      background: var(--brown-dark);
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 12px 28px rgba(107, 68, 35, 0.5);
+    }
+    .back-to-top:active { transform: scale(0.95); }
+    @media (max-width: 768px) {
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="top"></div>
+  <div class="page-frame" aria-hidden="true"></div>
+  <div class="page-shell">
+    <button class="back-to-top" id="backToTopBtn" title="Back to top">↑</button>
+    <header class="nav-shell">
+      <div class="nav-inner">
+        <a class="brand" href="index.html">QuixoteQuest</a>
+        <nav class="nav-menu" id="navMenu">
+          <a href="index.html">Home</a>
+          <a href="plot.html">Plot</a>
+          <a href="analysis.html" class="active">Analysis</a>
+          <a href="themes.html">Themes</a>
+          <a href="characters.html">Characters</a>
+          <a href="author.html">Author</a>
+          <a href="quiz.html">Quiz</a>
+        </nav>
+        <div class="nav-cta">
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+
+
+    <section class="section" id="analysis">
+      <div class="container">
+        <div class="analysis-wrap card-soft">
+          <div class="analysis-intro">
+            <span class="analysis-badge">Critical Lens</span>
+            <h1 class="analysis-title">Reading Don Quixote Against the Grain</h1>
+            <p class="analysis-lead">Chivalry as improv theater, satire as shield, and a narrative that keeps arguing with itself. This breakdown follows how Cervantes bends form to question myth.</p>
+            <div class="theme-pills">
+              <span class="theme-chip">Metafiction</span>
+              <span class="theme-chip">Satire</span>
+              <span class="theme-chip">Identity</span>
+              <span class="theme-chip">Reality vs. Illusion</span>
+            </div>
+          </div>
+
+          <div class="analysis-grid">
+            <div class="analysis-main">
+              <article class="insight-card">
+                <h3>Chivalry as a performance</h3>
+                <p>
+                  Don Quixote follows the titular main character, a middle-aged man who has gone mad after reading too many romantic novels
+                  about knights and believes that he can bring chivalry back to the world by becoming a knight-errant. Along with his far
+                  more reasonable and grounded servant Sancho, Don Quixote sets out on a number of absurd quests. The novel parodies the
+                  unrealistic romantic tales of the time period, making Don Quixote out to be a comedic yet endearing character.
+                  Its author, Miguel de Cervantes, brings into question the truthfulness of our myths of “golden ages” and plays with
+                  metafiction as a way to cleverly interrogate our propensity to trust in narratives and storytellers even when these narratives go against common sense.
+                </p>
+              </article>
+
+              <article class="insight-card">
+                <h3>Clinging to a fading age</h3>
+                <p>
+                  At the start of Don Quixote, Don Quixote has become deluded by chivalric romantic novels and believes that he must become
+                  a knight and bring morals and valor back to modern society. The novel was written in the very early 1600s, at which point
+                  the age of knighthood was coming to a decided end – Don Quixote is attempting to cling to a dying way of life. He changes
+                  his name from Alonso Quixano to Don Quixote of La Mancha, and he finds an old barn horse who he rechristens Rocinante,
+                  a name more fitting for a stallion than a workhorse. He and Rocinante set out as a knight and steed, and in the novel’s inciting incident,
+                  they come across a group of merchants whom they try and fail to do battle with. This initial loss foreshadows the pathetic hilarity that
+                  will ensue throughout Don Quixote’s adventures.
+                </p>
+              </article>
+
+              <article class="insight-card image-card">
+                <div class="image-card__media" aria-hidden="true">
+                  <img src="images/summ.jpg" alt="Old book and ink" loading="lazy">
+                </div>
+                <div class="image-card__body">
+                  <h3>Companionship vs. fantasy</h3>
+                  <p>
+                    Always persistent, Don Quixote continues his knight-errantry and soon picks up Sancho,
+                    a peasant whom Don Quixote promises to make a governor if he accompanies Don Quixote on his quest. Don Quixote, Rocinante, and Sancho
+                    and his donkey Dapple, travel the roads of Spain together as Don Quixote searches for quests to undertake and knightly duties to perform.
+                    Don Quixote and Rocinante are both past their prime but foolishly believe that they have been reinvented as magnificent knightly specimens.
+                    Meanwhile, the humble yet reasonable Sancho and Dapple take care of practical matters so that Don Quixote and Rocinante can live out their romantic fantasies.
+                  </p>
+                </div>
+              </article>
+
+              <article class="insight-card">
+                <h3>Audience and authorship</h3>
+                <p>
+                  In the novel’s rising action, the gang meets a Duke and Duchess who invite Don Quixote and Sancho to stay with them because they are entertained
+                  by Don Quixote’s ridiculous behavior. The Duke and Duchess create false scenarios that Don Quixote believes are real quests. Sancho is given a
+                  fictitious isle to govern and does a decent job, proving once again that he has more reason and wisdom than his wealthy master. Don Quixote,
+                  deluded by his own fantasies, never realizes that the Duke and Duchess are playing tricks on him. Eventually, Don Quixote and Sancho set out
+                  on the road once more, this time arriving in Barcelona. In the novel’s climax, the Knight of the White Moon challenges Don Quixote to a duel.
+                  The Knight is a mysterious figure to Don Quixote, but is known to the reader as Samson Currasco, an old peer of Don Quixote’s who wants to
+                  bring Don Quixote back to reality. The Knight tells Don Quixote that, should he lose the duel, he must return home and give up knight-errantry
+                  for a year. Don Quixote accepts, and he loses the duel.
+                </p>
+              </article>
+
+              <article class="insight-card">
+                <h3>Disillusionment and aftermath</h3>
+                <p>
+                  In the novel’s falling action, Don Quixote and Sancho return to La Mancha. Devastated by his loss, Don Quixote quickly begins to return to reality
+                  and decides he is done with knighthood and would rather be a shepherd. He falls very ill, and despite Sancho’s attempts to revive him by suggesting
+                  that he set out on a new quest, Don Quixote remains despondent and soon dies. The novel’s ending suggests that Don Quixote’s death was caused by
+                  heartbreak rather than physical decline. His loss at the hands of the Knight of the White Moon causes Don Quixote to realize that he will never truly
+                  be a knight, and that he will never live in the golden era of knighthood and chivalry that he romanticizes. This reality is too much for Don Quixote to bear.
+                  While Cervantes has empathy for his titular character’s struggle, he implies that people like Sancho who have a more realistic outlook on life will ultimately
+                  fare better, and that we must take caution not to mythologize the past.
+                </p>
+              </article>
+            </div>
+
+            <aside class="analysis-aside">
+              <div class="pull-quote card-soft">
+                <p class="quote-text">“The novel keeps asking: who owns a story—the one who lives it, the one who writes it, or the one who reads?”</p>
+                <span class="quote-attrib">Lecture note</span>
+              </div>
+
+              <div class="insight-card mini-card">
+                <h4>Takeaway threads</h4>
+                <ul class="beat-list">
+                  <li>Meta-narrator blurs history and invention.</li>
+                  <li>Sancho grounds Quixote’s fantasy through pragmatism.</li>
+                  <li>Power critiques hide inside comedy.</li>
+                  <li>Defeat restores reality but kills the dream.</li>
+                </ul>
+              </div>
+
+              <div class="insight-card mini-card">
+                <h4>Visual cue</h4>
+                <div class="aside-media">
+                  <img src="images/windmill.jpg" alt="Don Quixote tilting at windmills" loading="lazy">
+                </div>
+                <p class="aside-caption">The most famous misreading: windmills as giants—symbol of perception over fact.</p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <h4 class="brand">QuixoteQuest</h4>
+          <p class="muted">Classroom version • Built for educational use.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/main.js"></script>
+  <script>
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
